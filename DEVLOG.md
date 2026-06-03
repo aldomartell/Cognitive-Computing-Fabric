@@ -87,4 +87,4 @@ This project is long-term. V1 is the foundation.
 
 ---
 
-*Aldo Martell — CS @ Baruch College (CUNY)*
+*Aldo Martell*
