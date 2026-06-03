@@ -1,19 +1,17 @@
 # J.A.R.V.I.S.
-**Just A Rather Very Intelligent System**
 
-A locally-running AI voice assistant inspired by Tony Stark's J.A.R.V.I.S. Fully offline LLM, neural text-to-speech, and real-time voice input — no cloud APIs, no subscriptions, runs entirely on your machine.
+A voice-interactive AI assistant in Python. Talk to it, it talks back. Powered by a local Ollama LLM with no cloud dependencies for inference.
 
 ---
 
 ## What it does
 
-You speak, it listens. It thinks using a local LLM and talks back with a British neural voice. No internet required after setup.
-
-- Real-time microphone capture with automatic silence detection
-- Local LLM via Ollama (`llama3.2:3b`) — nothing leaves your machine
-- Neural TTS using Microsoft Edge TTS (`en-GB-RyanNeural`)
-- Rolling conversation memory (last 10 exchanges)
-- Voice commands: "exit", "shutdown", "forget everything"
+- Captures microphone input with automatic silence detection
+- Transcribes speech using Google Speech Recognition
+- Sends your input to a local Ollama LLM (`llama3.2:3b`)
+- Responds with a British neural voice via Microsoft Edge TTS
+- Maintains rolling conversation memory across the session
+- Built-in voice commands: "exit", "shutdown", "forget everything"
 
 ---
 
@@ -22,7 +20,7 @@ You speak, it listens. It thinks using a local LLM and talks back with a British
 ```
 mic → silence detection → WAV
     → Google STT → text
-        → Ollama LLM → response
+        → Ollama (llama3.2:3b) → response
             → Edge TTS → speaker
 ```
 
@@ -31,10 +29,10 @@ mic → silence detection → WAV
 ## Stack
 
 - Python 3.10+
-- [Ollama](https://ollama.com) — local LLM inference
-- `speech_recognition` — speech to text
-- `edge-tts` — neural voice synthesis
-- `sounddevice` / `scipy` — audio capture
+- [Ollama](https://ollama.com) — local LLM inference (`llama3.2:3b`)
+- `speech_recognition` — speech to text (Google STT)
+- `edge-tts` — neural voice synthesis (`en-GB-RyanNeural`)
+- `sounddevice` / `scipy` — audio capture and WAV handling
 
 ---
 
@@ -62,22 +60,12 @@ python jarvis.py
 At the top of `jarvis.py`:
 
 ```python
-MODEL        = 'llama3.2:3b'      # any Ollama model works
+MODEL        = 'llama3.2:3b'      # swap for any Ollama model
 VOICE        = "en-GB-RyanNeural" # change accent/voice
-SILENCE_SECS = 2.2                # pause threshold
-MAX_HISTORY  = 10                 # memory depth
+SILENCE_SECS = 2.2                # pause threshold before stopping recording
+MAX_HISTORY  = 10                 # number of exchanges kept in memory
 ```
 
 ---
 
-## Roadmap
-
-- Wake word detection
-- Flask/SocketIO HUD interface
-- SQLite persistent memory
-- Whisper for local STT
-- System automation tools
-
----
-
-**Aldo Martell** — CS @ Baruch College (CUNY)
+**Aldo Martell** 
