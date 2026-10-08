@@ -6,7 +6,7 @@ The project began as a local Python voice assistant powered by an on-device LLM 
 
 ---
 
-## Version V1.0, What it does
+## Version 1.0, What it does
 
 - Captures microphone input with automatic silence detection
 - Transcribes speech using Google Speech Recognition
