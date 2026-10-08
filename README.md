@@ -1,10 +1,12 @@
 # J.A.R.V.I.S.
 
-A voice-interactive AI assistant in Python. Talk to it, it talks back. Powered by a local Ollama LLM with no cloud dependencies for inference.
+It is an ongoing research and engineering project focused on building a persistent, cross-device AI computing agent capable of interacting through voice, text, files, applications, and external services.
+
+The project began as a local Python voice assistant powered by an on-device LLM and is evolving into a modular agentic computing platform incorporating LLM orchestration, persistent memory, tool execution, API integrations, cross-device communication, multimodal interfaces, and autonomous workflows.
 
 ---
 
-## What it does
+## Version V1.0, What it does
 
 - Captures microphone input with automatic silence detection
 - Transcribes speech using Google Speech Recognition
